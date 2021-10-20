@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="inputHandler.js"></script>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <header>
+        <h1>Calculator</h1>
+    </header>
+    <main>
+        <div class="btn-radios">
+            <input type="radio" name="operacao" value='sum'>
+            <label for="">Sum</label>
+        </div>
+        <div class="btn-radios">
+            <input type="radio" name="operacao" value='sub'>
+            <label for="">Subtraction</label>
+        </div>
+        <div class="btn-radios">
+            <input type="radio" name="operacao" value='mult'>
+            <label for="">Multiplication</label>
+        </div>
+        <div class="btn-radios">
+            <input type="radio" name="operacao" value='divs'>
+            <label for="">Division</label>
+        </div>
+        <div class="inputValue" style="padding: 10px;">
+            <label for="">Value:</label>
+            <input type="number" id="entryValue">
+        </div>
+        <div class="result">
+            <span></span>
+        </div>
+        <div class="btn-entry" style="margin-top: 10px;">
+            <button name="entry" id="button_enter">Entry</button>
+            <button name="equals" id="button_equals">Equals</button>
+            <button name="reset" id="button_reset">Reset</button>
+        </div>
+    </main>
+    <footer style="margin-top: 20px;">Class 811 - Santander - Let's Code</footer>
+    <script>
+        const buttonEntry = document.querySelector('button[name="entry"]');
+        buttonEntry.onclick = function () {
+            storage();
+            clearInput();
+        }
+        const buttonEquals = document.querySelector('button[name="equals"]');
+        buttonEquals.onclick = function () {
+            equals();
+            clearInput();
+        }
+        const buttonReset = document.querySelector('button[name="reset"]');
+        buttonReset.onclick = function () {
+            clearInput();
+            resetResult();
+        }
+    </script>
+</body>
+
+</html>
