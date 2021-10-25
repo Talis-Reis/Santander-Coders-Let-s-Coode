@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Modal</title>
+</head>
+<body>
+    <header>
+        <h1>Registration</h1>
+    </header>
+    <main>
+        <button sytle="button" id="buttonOpen">Open modal</button>
+        <div class="modal">
+            <div class="close">
+                <button type="button" id="buttonClose"><img src="assets/images/fail.jpg" class="buttonClose" alt=""></button>
+            </div>
+            <form action="" id="form_cliente">
+                <div>
+                    <div class="fields">
+                        <label>Name:</label>
+                        <input type="text" class="inputs" id="name" name="name" placeholder="Name" required />
+                    </div>
+                    <div class="fields">
+                        <label>Lastname: </label>
+                        <input type="text" class="inputs" id="sobrenome" name="sobrenome" placeholder="Lastname" required />
+                    </div>
+                    <div class="fields">
+                        <label>E-mail: </label>
+                        <input type="text" class="inputs" id="email" name="email" placeholder="E-mail"required />
+                    </div>
+                    <div class="fields">
+                        <label>Address: </label>
+                        <input type="text" class="inputs" id="endereco" name="endereco" placeholder="Address" required />
+                    </div>
+                    <div class="fields">
+                        <label>District: </label>
+                        <input type="text" class="inputs" id="bairro" name="bairro" placeholder="Neighborhood" required />
+                    </div>
+                    <div class="fields">
+                        <label>Number:</label>
+                        <input type="text" class="inputs" id="numero" name="numero" placeholder="Number" required />
+                    </div>
+                    <div>
+                        <button type="submit" class="send"><img src="assets/images/sucess.png" class="buttonSucess" alt="">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="load">
+            <img src="assets/images/load.gif" class="imageLoad" alt="">
+        </div>
+        <div class="modal-sucess">
+            Registration completed with Success!!
+            <img src="assets/images/Ok.jpg" class="fr" alt="">
+        </div>
+    </main>
+    <script src="assets/js/formHandler.js"></script>
+</body>
+</html>
