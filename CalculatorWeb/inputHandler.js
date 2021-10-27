@@ -1,20 +1,4 @@
-function getInputValue() {
-  const input = document.querySelector("#entryValue");
-  return +input.value;
-}
-
-let storingValues = [];
-function storage() {
-  if (getInputValue() !== 0) {
-    storingValues = [...storingValues, getInputValue()];
-  }
-  return storingValues;
-}
-
-function clearInput() {
-  const input = document.querySelector("#entryValue");
-  input.value = "";
-}
+let _storingValues = [];
 
 const getOperations = {
   sum: (num1, num2) => num1 + num2,
@@ -23,27 +7,48 @@ const getOperations = {
   divs: (num1, num2) => num1 / num2,
 };
 
-function operation() {
-  let calculo = storage();
+_getInputValue = () => {
+  const input = document.querySelector("#entryValue");
+  return +input.value;
+};
+
+_clearInput = () => {
+  const input = document.querySelector("#entryValue");
+  input.value = "";
+};
+
+_storage = () => {
+  if (_getInputValue() !== 0) {
+    _storingValues = [..._storingValues, _getInputValue()];
+  }
+  return _storingValues;
+};
+
+_resetStorage = () => (_storingValues = []);
+
+_operation = () => {
   const operacao = document.querySelector('input[type="radio"]:checked').value;
-  console.log(calculo);
-  console.log(operacao);
+  document.querySelector('input[type="radio"]').checked = true;
   let total = 0;
-  total = storage().reduce(getOperations[operacao]);
+  total = _storage().reduce(getOperations[operacao]);
   return total;
-}
+};
 
-function resetStorage() {
-  storingValues = [];
-}
+_openResult = () =>
+  (document.querySelector(".modal-sucess").className =
+    "modal-sucess --is-sucess");
+_closeModalSucess = () =>
+  document.querySelector(".modal-sucess").classList.remove("--is-sucess");
+_returnSucess = () =>
+  setTimeout(function () {
+    _closeModalSucess();
+  }, 2000);
 
-function resetResult() {
-  storingValues = [];
-  document.querySelector("span").innerHTML = "Total: " + storingValues;
-}
-
-function equals() {
+_equals = () => {
   const totalSpan = document.querySelector("span");
-  totalSpan.innerHTML = "Total: " + operation();
-  resetStorage();
-}
+  totalSpan.innerHTML = "Total: " + _operation();
+  _openResult();
+  _returnSucess();
+  document.querySelector('input[type="radio"]').checked = false;
+  _resetStorage();
+};
