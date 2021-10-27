@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration</title>
+</head>
+
+<body>
+    <header>
+        <h1>User Registration</h1>
+    </header>
+    <main>
+        <h2>User List</h2>
+        <form class="formUsers">
+            <input type="text" class="userEntry" required />
+            <button type="submit" class="addUser">OK</button>
+        </form>
+        <section class="userList">
+            <ul></ul>
+        </section>
+    </main>
+    <script>
+        const form = document.querySelector('form');
+        const userEntry = document.querySelector('.userEntry');
+        const userList = document.querySelector('ul')
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault()
+            _newUser()
+            _clearForm()
+        })
+
+        _newUser = () => {
+            const user = document.createElement('li')
+            userList.appendChild(user)
+            user.innerText = userEntry.value;
+            _removeUser(user)
+        }
+
+        _removeUser = user => {
+            const btnRemove = document.createElement('button')
+            btnRemove.classList.add('btnRemoveUser')
+            btnRemove.innerText = 'Remove'
+            btnRemove.onclick = () => user.remove()
+            user.appendChild(btnRemove)
+        }
+
+        _clearForm = () => form.reset()
+
+    </script>
+</body>
+
+</html>
