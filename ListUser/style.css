@@ -1,19 +1,23 @@
-*{
+* {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
     margin: 0px;
     padding: 0px;
 }
-body{
+
+body {
     height: 100vh;
     margin: 0;
     background-color: darkgray;
 }
-header{
+
+header {
     background-color: black;
     color: white;
     flex-grow: 0;
 }
-h1,h2{
+
+h1,
+h2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,14 +25,17 @@ h1,h2{
     margin-block-end: 0px;
     padding: 20px;
 }
-.formUsers, .userList{
+
+.formUsers,
+.userList {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
 
-.btnRemoveUser, .addUser{
+.btnRemoveUser,
+.addUser {
     margin-left: 10px;
     padding: 3px;
 }
