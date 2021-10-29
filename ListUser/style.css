@@ -1,38 +1,34 @@
-* {
+*{
     font-family: Calibri, 'Trebuchet MS', sans-serif;
-    margin     : 0px;
-    padding    : 0px;
+    margin: 0px;
+    padding: 0px;
 }
-
-body {
-    height          : 100vh;
-    margin          : 0;
+body{
+    height: 100vh;
+    margin: 0;
     background-color: darkgray;
 }
-
-header {
+header{
     background-color: black;
-    color           : white;
+    color: white;
+    flex-grow: 0;
 }
-
-h1,
-h2 {
-    display           : flex;
-    justify-content   : center;
-    align-items       : center;
-    padding           : 20px;
-}
-
-.formUsers,
-.userList {
-    display        : flex;
+h1,h2{
+    display: flex;
     justify-content: center;
-    align-items    : center;
-    padding        : 10px;
+    align-items: center;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    padding: 20px;
+}
+.formUsers, .userList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
-.btnRemoveUser,
-.addUser {
+.btnRemoveUser, .addUser{
     margin-left: 10px;
-    padding    : 3px;
+    padding: 3px;
 }
