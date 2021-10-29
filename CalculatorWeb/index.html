@@ -47,13 +47,13 @@
     <script>
         const buttonEntry = document.querySelector('button[name="entry"]');
         buttonEntry.onclick = function () {
-            _storage();
-            _clearInput();
+            calculator.storage()
+            calculator.clearInput()
         }
         const buttonEquals = document.querySelector('button[name="equals"]');
         buttonEquals.onclick = function () {
-            _equals();
-            _clearInput();
+            calculator.equals()
+            calculator.clearInput()
         }
     </script>
 </body>

@@ -1,33 +1,33 @@
 body {
-    font-family     : Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
     background-color: rgb(202, 202, 202);
 }
 
 .modal-sucess {
-    background     : #fefefe;
-    color          : black;
-    box-shadow     : 5px 5px 30px rgb(0 0 0 / 10%);
-    box-sizing     : border-box;
-    border-radius  : 10px;
-    width          : 150px;
-    height         : 150px;
-    font-size      : 25px;
-    text-align     : center;
-    display        : flex;
+    background: #fefefe;
+    color: black;
+    box-shadow: 5px 5px 30px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
     justify-content: center;
-    opacity        : 1;
-    padding        : 15px;
-    position       : fixed;
-    transition     : .45s all ease;
-    top            : calc(50% - 150px);
-    left           : calc(50% - 100px);
+    opacity: 1;
+    padding: 15px;
+    position: fixed;
+    transition: .45s all ease;
+    top: calc(50% - 150px);
+    left: calc(50% - 100px);
 }
 
 .modal-sucess:not(.--is-sucess) {
-    opacity       : 0;
+    opacity: 0;
     pointer-events: none;
-    transform     : scale(.6);
-    z-index       : -1;
+    transform: scale(.6);
+    z-index: -1;
 }
 
 span {
