@@ -107,12 +107,12 @@ const model = (() => {
 
     _form.onsubmit = function (event) {
         event.preventDefault()
-        const talis = [..._fields.querySelectorAll("input")]
+        const registryValues = [..._fields.querySelectorAll("input")]
             .map(input => ({
                 'key': input.name,
                 'value': input.value
             }))
-        console.log(talis);
+        console.log(registryValues);
         closeRegistrationModal()
         resetForm()
         openModalOfLoading()
