@@ -1,55 +1,122 @@
-const _modal = document.querySelector(".modal")
-const _load = document.querySelector(".load")
-const _modalSucess = document.querySelector(".modal-sucess")
-const _form = document.querySelector("#form_cliente")
-const _inputName = document.querySelector("input[name=name]")
-const _inputSobrenome = document.querySelector("input[name=sobrenome]")
-const _inputEmail = document.querySelector("input[name=email]")
-const _inputEndereco = document.querySelector("input[name=endereco]")
-const _inputBairro = document.querySelector("input[name=bairro]")
-const _inputNumero = document.querySelector("input[name=numero]")
+const model = (() => {
 
-let formClient = null
-let resultForm = []
+    const _form = document.querySelector("form")
+    const _fields = document.querySelector(".fields")
 
-const buttonOpen = document.querySelector("#buttonOpen")
-const buttonClose = document.querySelector("#buttonClose")
+    const _modal = document.querySelector(".modal")
+    const _load = document.querySelector(".load")
+    const _modalSucess = document.querySelector(".modal-sucess")
 
-buttonOpen.onclick = function () {
-    _openModel();
-}
+    const buttonOpenModalRegistration = document.querySelector("#buttonOpen")
+    const buttonCloseModalRegistration = document.querySelector("#buttonClose")
 
-buttonClose.onclick = function () {
-    _closeModel();
-    resultForm = [...resultForm, 'Cliente cancelou o cadastro!']
-    console.log('Cliente cancelou o cadastro!')
-    console.log(`Quantidade de cancelamento: ${resultForm.length}`)
-}
+    let resultForm = []
 
-_openModel = () => _modal.className = "modal --is-open"
-_closeModel = () => _modal.classList.remove('--is-open')
-_openLoad = () => _load.className = "load --is-load"
-_closeLoad = () => _load.classList.remove('--is-load')
-_openModalSucess = () => {_modalSucess.className = "modal-sucess --is-sucess", _returnSucess()}
-_closeModalSucess = () => _modalSucess.classList.remove('--is-sucess')
-_resetForm = () => _form.reset()
-_returnSucess = () => setTimeout(function(){ _closeModalSucess()}, 2000);
-_returnFormSucess = () => setTimeout(function(){ _closeLoad(), _openModalSucess()  }, 3000);
+    const inputFields = [{
+            'type': 'text',
+            'name': 'name',
+            'placeholder': 'Name:',
+            'required': true
+        },
+        {
+            'type': 'text',
+            'name': 'lastname',
+            'placeholder': 'Lastname:',
+            'required': true
+        },
+        {
+            'type': 'text',
+            'name': 'email',
+            'placeholder': 'Email:',
+            'required': false
+        },
+        {
+            'type': 'text',
+            'name': 'address',
+            'placeholder': 'Address:',
+            'required': true
+        },
+        {
+            'type': 'text',
+            'name': 'district',
+            'placeholder': 'District:',
+            'required': true
+        },
+        {
+            'type': 'text',
+            'name': 'number',
+            'placeholder': 'Number:',
+            'required': true
+        }
+    ]
 
-_form.onsubmit = function (event) {
-    event.preventDefault()
-    formClient = {
-        "Name ": _inputName.value,
-        "Sobrenome": _inputSobrenome.value,
-        "Email ": _inputEmail.value,
-        "Endereço": _inputEndereco.value,
-        "Bairro": _inputBairro.value,
-        "Numero": _inputNumero.value
-    };
-    console.log(formClient)
-    _closeModel()
-    _resetForm()
-    _openLoad();
-    _returnFormSucess();
+    const openRegistrationModal = () => _modal.className = "modal --is-open"
+    const closeRegistrationModal = () => _modal.classList.remove('--is-open')
+    const resetForm = () => _form.reset()
+    const openModalOfLoading = () => _load.className = "load --is-load"
+    const closeModalOfLoading = () => _load.classList.remove('--is-load')
+    const openModalOfSuccess = () => {
+        _modalSucess.className = "modal-sucess --is-sucess", returnSuccess()
+    }
+    const closeModalSucess = () => _modalSucess.classList.remove('--is-sucess')
 
-}
+    const returnFormSuccess = () => setTimeout(function () {
+        closeModalOfLoading(), openModalOfSuccess()
+    }, 3000);
+
+    const returnSuccess = () => setTimeout(function () {
+        closeModalSucess()
+    }, 2000);
+
+
+    function createInputElement(param) {
+        let input = document.createElement('Input')
+        input.type = param.type
+        input.name = param.name
+        input.placeholder = param.placeholder
+        input.required = param.required
+
+        return input
+    }
+
+    function createLabelElement(param) {
+        let label = document.createElement('Label')
+        label.innerText = param.name[0].toUpperCase() + param.name.slice(1) + ':'
+        return label
+    }
+
+    function assignCreatedElementsToModal() {
+        _fields.innerHTML = ""
+        for (let valueField of inputFields) {
+            _fields.appendChild(createLabelElement(valueField))
+            _fields.appendChild(createInputElement(valueField))
+        }
+    }
+
+    buttonOpenModalRegistration.onclick = function () {
+        openRegistrationModal();
+        assignCreatedElementsToModal();
+    }
+
+    buttonCloseModalRegistration.onclick = function () {
+        closeRegistrationModal();
+        resultForm = [...resultForm, 'Cliente cancelou o cadastro!']
+        console.log('Cliente cancelou o cadastro!')
+        console.log(`Quantidade de cancelamento: ${resultForm.length}`)
+    }
+
+    _form.onsubmit = function (event) {
+        event.preventDefault()
+        const talis = [..._fields.querySelectorAll("input")]
+            .map(input => ({
+                'key': input.name,
+                'value': input.value
+            }))
+        console.log(talis);
+        closeRegistrationModal()
+        resetForm()
+        openModalOfLoading()
+        returnFormSuccess()
+
+    }
+})()

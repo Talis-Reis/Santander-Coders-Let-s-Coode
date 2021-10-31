@@ -42,21 +42,22 @@ img.buttonSucess {
 
 label {
 
-    display   : inline-block;
+    display   : flex;
     width     : 90px;
     text-align: right;
 }
 
 form {
-    display: flex;
+    display: inline-flex;
+
 }
 
 .fields {
     margin: 10px;
 }
 
-.inputs {
-    width : 300px;
+input {
+    width : 250px;
     height: 20px;
 }
 
