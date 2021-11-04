@@ -1,0 +1,18 @@
+body{
+    width: 100%;
+    margin-left: 20px;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    background-color: black;
+    color: white;
+}
+button{
+    display: inline-block;
+    margin: 5px;
+}
+.array-list{
+    background-color: darkslategray;
+    border-radius: 15px;
+    color: white;
+    width: 800px;
+    font-size: 2em;
+}
