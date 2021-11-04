@@ -9,6 +9,9 @@ button{
     display: inline-block;
     margin: 5px;
 }
+input{
+    margin-left: 10px;
+}
 .array-list{
     background-color: darkslategray;
     border-radius: 15px;
